@@ -42,7 +42,7 @@ Columns have unit population variance. Within-group pairwise correlations are $0
 
 $$A_G=1.2\tanh(a)-0.8\tanh(b)+0.5(c^2-1),\qquad I_G=ab.$$
 
-Use the case-specific logit in the table, with no intercept adjustment. Draw independent uniform values and set $Y=\mathbf{1}[U<\operatorname{sigmoid}(\eta)]$. Feature generation and uniform draws are paired between targets at the same seed. These results are newly fitted at 55 columns; no different-width comparison is used.
+Use the case-specific logit in the table, with no intercept adjustment. Draw independent uniform values and set $Y=\mathbf{1}[U<\mathrm{sigmoid}(\eta)]$. Feature generation and uniform draws are paired between targets at the same seed. These results are newly fitted at 55 columns; no different-width comparison is used.
 
 ## Structured Synthesis
 
@@ -78,7 +78,7 @@ The additive core has four SiLU units per feature, summed with a scalar intercep
 
 $$g_j=\left(0.25+0.75e^{-s_j}\right)e^{0.5\tanh(\theta_j)}.$$
 
-Learned corrections are penalized by $0.001\,\operatorname{mean}[(e^{0.5\tanh\theta}-1)^2]$. `learned_gate` uses zero scores; correlation, reconstructability and combined variants use their respective fitting-only scores. Shuffled controls permute the corresponding score vector using seed plus 23. Fixed controls hold corrections at one. These gates are static, not input-dependent interactions. Positive fixed gates preserve the additive function class but can change optimization and effective regularization.
+Learned corrections are penalized by $0.001\,\mathrm{mean}[(e^{0.5\tanh\theta}-1)^2]$. `learned_gate` uses zero scores; correlation, reconstructability and combined variants use their respective fitting-only scores. Shuffled controls permute the corresponding score vector using seed plus 23. Fixed controls hold corrections at one. These gates are static, not input-dependent interactions. Positive fixed gates preserve the additive function class but can change optimization and effective regularization.
 
 | Model family | Trainable parameters at 55 columns | Definition |
 | --- | ---: | --- |
